@@ -41,6 +41,8 @@ if [ ! -x $idf_was_installed ] || [ ! -x $commit_predefined ]; then
 
 	# Temporarily patch the ESP32-S2 I2C LL driver to keep the clock source
 	cd $IDF_PATH
+ 	echo "./patches/libbtdm_app.a ./components/bt/controller/lib_esp32c3_family/esp32s3/3.0.2"
+  	cp -Rf ../patches/libbtdm_app.a ./components/bt/controller/lib_esp32c3_family/esp32s3/
 	patch -p1 -N -i ../patches/esp32s2_i2c_ll_master_init.diff
 	cd -
 fi
